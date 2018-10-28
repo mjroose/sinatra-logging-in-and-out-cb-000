@@ -9,7 +9,7 @@
     <% Helpers.is_logged_in?(session) ? @user = Helpers.current_user(session) : @user = {username: "XXXXX", balance: "XXXXX"} %>
     <h1>Welcome <%= @user.username %></h1>
     <a href="/logout">Log Out</a>
-    <h3>Your Balance: <%= @user.balance %></h3>
+    <h3>Your Balance: <%= @user.balance.to_f %></h3>
 
   </body>
 </html>
