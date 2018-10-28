@@ -7,19 +7,19 @@
   </head>
   <body id="page-top">
     <% if Helpers.is_logged_in?(session)
-        user = Helpers.current_user(session)
+        @user = Helpers.current_user(session)
 
-        account_info = <<-ACCOUNT_INFO
+        @account_info = <<-ACCOUNT_INFO
           <h1>Welcome, <%= user.username %>!</h1>
           <a href="/logout">Log Out</a>
           <p>Your balance is $<%= user.balance %>.</p>
         ACCOUNT_INFO
       else
-        account_info = <<-NO_ACCOUNT
+        @account_info = <<-NO_ACCOUNT
           <h2>You must be logged in to view this page.<h2>
         NO_ACCOUNT
     %>
-    <%= account_info %>
+    <%= @account_info %>
 
   </body>
 </html>
