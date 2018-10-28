@@ -1,4 +1,4 @@
-require_relative './../app/models/user.rb'
+require_relative './../app/models/user'
 
 user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
 
