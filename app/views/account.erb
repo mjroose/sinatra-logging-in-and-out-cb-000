@@ -6,20 +6,10 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    <% if Helpers.is_logged_in?(session)
-        @user = Helpers.current_user(session)
-
-        @account_info = <<-ACCOUNT_INFO
-          <h1>Welcome, <%= user.username %>!</h1>
-          <a href="/logout">Log Out</a>
-          <p>Your balance is $<%= user.balance %>.</p>
-        ACCOUNT_INFO
-      else
-        @account_info = <<-NO_ACCOUNT
-          <h2>You must be logged in to view this page.<h2>
-        NO_ACCOUNT
-    %>
-    <%= @account_info %>
+    <% Helpers.is_logged_in?(session) ? @user = Helpers.current_user(session) : @user = {username: "XXXXX", balance: "XXXXX"} %>
+    <h1>Welcome, <%= @user.username %>!</h1>
+    <a href="/logout">Log Out</a>
+    <p>Your balance is $<%= @user.balance %>.</p>
 
   </body>
 </html>
